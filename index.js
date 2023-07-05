@@ -1,6 +1,6 @@
 
-function init() {
-
+function init() {//makes sure the entire code is initiallized.
+    //loads the needed content to run this code
     const inquirer = require('inquirer');
     // const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
     const jest = require('jest');
@@ -8,7 +8,7 @@ function init() {
     const genSVG = require('./lib/shapes');
 
     inquirer
-        .prompt([{
+        .prompt([{ //asks the user quesitons in the terminal
             type: 'input',
             message: 'Choose three characters to display:',
             name: 'Characters',
@@ -31,17 +31,17 @@ function init() {
             message: 'Enter a shape color:',
             name: 'shapeColor',
         }])
-        .then(data => {
+        .then(data => {//sends the data to the function writeFile
             console.log('data is: ', data);
             writeToFile(data);
         })
 
-    function svgInfo(data) {
+    function svgInfo(data) { // this file sets up the content for the next function to create SVG, by checking for shapeinfo
         if (data.shape === 'circle') {
             return `
     <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
     <circle cx="200" cy="100" r="100" fill ="${data.shapeColor}"/>
-    <text text-anchor="middle" x="200" y="100" font-size="60"fill="${data.textColor}">${data.Characters}</text>
+    <text text-anchor="middle" x="200" y="100" font-size="60" fill="${data.textColor}">${data.Characters}</text>
     </svg> `
         }
         else if (data.shape === 'triangle') {
@@ -59,7 +59,7 @@ function init() {
         </svg> `
         }
     }
-    function writeToFile(data) {
+    function writeToFile(data) { //after SVG info picks which shape to build, this function writes that new files content
         const SVG = svgInfo(data);
         fs.writeFile(
             'logo.svg', SVG, err => err ? console.log(err) : console.log('file created successfully')
