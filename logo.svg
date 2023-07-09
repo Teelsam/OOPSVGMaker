@@ -1,5 +1,5 @@
 
-        <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="0,300 300,300 150,0" fill="red"/>
-        <text text-anchor="middle"  x="150" y="200" font-size="60" fill="green">abc</text>
-        </svg> 
+    <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="200" cy="100" r="100" fill ="red"/>
+    <text text-anchor="middle" x="200" y="100" font-size="60" fill="green">gee</text>
+    </svg> 
